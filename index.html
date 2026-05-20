@@ -3,35 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Explorează Lumea cu Erasmus+ | Ghidul Tinerilor</title>
+    <title>Ghid Complet Erasmus+ | Explorează Lumea Gratuit</title>
     <style>
         /* Reset și Stiluri Globale */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        :root {
+            --primary: #1d3557;
+            --secondary: #457b9d;
+            --accent: #e63946;
+            --light-bg: #f8f9fa;
+            --success: #2a9d8f;
+            --text-dark: #2b2d42;
         }
 
         body {
-            background-color: #f4f7f6;
-            color: #333;
-            line-height: 1.6;
+            background-color: var(--light-bg);
+            color: var(--text-dark);
+            line-height: 1.7;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         /* Navigație */
         header {
-            background-color: #1d3557;
-            color: white;
+            background-color: var(--primary);
             padding: 20px 0;
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
 
         .nav-container {
             width: 85%;
+            max-width: 1200px;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
@@ -39,13 +52,14 @@
         }
 
         .logo {
-            font-size: 24px;
-            font-weight: bold;
-            color: #f1faee;
+            font-size: 26px;
+            font-weight: 800;
+            color: #ffffff;
+            letter-spacing: 0.5px;
         }
 
         .logo span {
-            color: #e63946;
+            color: var(--accent);
         }
 
         nav ul {
@@ -54,14 +68,15 @@
         }
 
         nav ul li {
-            margin-left: 20px;
+            margin-left: 25px;
         }
 
         nav ul li a {
-            color: white;
+            color: #ffffff;
             text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
+            font-weight: 600;
+            font-size: 15px;
+            transition: color 0.3s ease;
         }
 
         nav ul li a:hover {
@@ -70,8 +85,8 @@
 
         /* Secțiunea Hero */
         .hero {
-            background: linear-gradient(rgba(29, 53, 87, 0.8), rgba(29, 53, 87, 0.8)), url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3') no-repeat center center/cover;
-            height: 60vh;
+            background: linear-gradient(rgba(29, 53, 87, 0.85), rgba(69, 123, 157, 0.7)), url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3') no-repeat center center/cover;
+            height: 75vh;
             color: white;
             display: flex;
             justify-content: center;
@@ -81,231 +96,454 @@
         }
 
         .hero-content h1 {
-            font-size: 42px;
-            margin-bottom: 15px;
+            font-size: 48px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
 
         .hero-content p {
-            font-size: 20px;
-            margin-bottom: 25px;
-            max-width: 600px;
+            font-size: 22px;
+            margin-bottom: 35px;
+            max-width: 700px;
             margin-left: auto;
             margin-right: auto;
+            font-weight: 300;
         }
 
         .btn {
             display: inline-block;
-            background-color: #e63946;
+            background-color: var(--accent);
             color: white;
-            padding: 12px 30px;
+            padding: 14px 35px;
             text-decoration: none;
-            border-radius: 25px;
+            border-radius: 30px;
             font-weight: bold;
-            transition: transform 0.3s, background-color 0.3s;
+            font-size: 16px;
+            box-shadow: 0 4px 15px rgba(230, 57, 70, 0.4);
+            transition: all 0.3s ease;
         }
 
         .btn:hover {
             background-color: #cb2d3e;
             transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(230, 57, 70, 0.6);
         }
 
-        /* Secțiuni de Conținut */
+        /* Layout Secțiuni */
         .container {
             width: 85%;
-            margin: 60px auto;
+            max-width: 1200px;
+            margin: 80px auto;
         }
 
         h2 {
             text-align: center;
-            color: #1d3557;
-            margin-bottom: 40px;
-            font-size: 32px;
-            position: relative;
+            color: var(--primary);
+            margin-bottom: 50px;
+            font-size: 36px;
+            font-weight: 700;
         }
 
         h2::after {
             content: '';
             display: block;
-            width: 50px;
+            width: 60px;
             height: 4px;
-            background-color: #e63946;
-            margin: 10px auto 0 auto;
+            background-color: var(--accent);
+            margin: 15px auto 0 auto;
             border-radius: 2px;
         }
 
-        /* Carduri Oportunități */
+        .intro-text {
+            text-align: center;
+            max-width: 850px;
+            margin: 0 auto 50px auto;
+            font-size: 19px;
+            color: #555;
+        }
+
+        /* Grile și Carduri */
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
-            margin-bottom: 60px;
+            margin-bottom: 50px;
         }
 
         .card {
             background-color: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            transition: transform 0.3s;
-            padding: 25px;
-            border-top: 5px solid #457b9d;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            border-top: 5px solid var(--secondary);
         }
 
         .card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
         }
 
         .card h3 {
-            color: #1d3557;
+            color: var(--primary);
             margin-bottom: 15px;
             font-size: 22px;
         }
 
-        /* Secțiunea Buget Zero */
+        /* Secțiunea Finanțare */
+        .budget-section {
+            background-color: #edf2f4;
+            padding: 60px 0;
+            border-radius: 16px;
+        }
+
         .info-box {
-            background-color: #e2ece9;
-            border-left: 6px solid #2a9d8f;
-            padding: 30px;
-            border-radius: 0 10px 10px 0;
-            margin-top: 40px;
+            background-color: white;
+            border-left: 6px solid var(--success);
+            padding: 35px;
+            border-radius: 4px 12px 12px 4px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
         }
 
         .info-box h3 {
-            color: #264653;
-            margin-bottom: 15px;
+            color: var(--success);
+            font-size: 24px;
+            margin-bottom: 20px;
         }
 
         .info-box ul {
-            list-style-position: inside;
-            margin-left: 10px;
+            list-style: none;
         }
 
         .info-box li {
+            margin-bottom: 15px;
+            position: relative;
+            padding-left: 25px;
+            font-size: 17px;
+        }
+
+        .info-box li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--success);
+            font-weight: bold;
+        }
+
+        /* Secțiunea Link-uri și Resurse (NOU) */
+        .resource-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .resource-card {
+            background: #ffffff;
+            border: 1px solid #e1e8ed;
+            border-radius: 10px;
+            padding: 25px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .resource-card:hover {
+            border-color: var(--accent);
+            background-color: #fffafb;
+        }
+
+        .resource-card h4 {
+            color: var(--primary);
+            font-size: 18px;
             margin-bottom: 10px;
         }
 
-        /* Subsol (Footer) */
-        footer {
-            background-color: #1d3557;
-            color: white;
-            text-align: center;
-            padding: 30px 0;
-            margin-top: 60px;
+        .resource-card p {
             font-size: 14px;
+            color: #666;
+            margin-bottom: 20px;
+            height: 60px;
+            overflow: hidden;
         }
 
-        /* Responsivitate pentru telefoane */
+        .link-btn {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 8px 20px;
+            text-decoration: none;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+
+        .link-btn:hover {
+            background-color: var(--accent);
+        }
+
+        .tag-oficial {
+            display: inline-block;
+            background-color: #d8f3dc;
+            color: #1b4332;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .tag-comunitate {
+            display: inline-block;
+            background-color: #e0f2fe;
+            color: #0369a1;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        /* Secțiunea FAQ (NOU) */
+        .faq-section {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: white;
+            margin-bottom: 15px;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+        }
+
+        .faq-item h3 {
+            font-size: 18px;
+            color: var(--primary);
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        /* Subsol */
+        footer {
+            background-color: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 40px 0;
+            margin-top: 80px;
+            font-size: 15px;
+        }
+
+        footer p {
+            margin-bottom: 10px;
+            opacity: 0.8;
+        }
+
+        /* Responsivitate */
         @media (max-width: 768px) {
             .nav-container {
                 flex-direction: column;
+                text-align: center;
             }
             nav ul {
-                margin-top: 15px;
+                margin-top: 20px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            nav ul li {
+                margin: 5px 10px;
             }
             .hero-content h1 {
-                font-size: 30px;
+                font-size: 32px;
             }
             .hero-content p {
-                font-size: 16px;
+                font-size: 18px;
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- Header & Navigație -->
+    <!-- Navigație -->
     <header>
         <div class="nav-container">
-            <div class="logo">Tineri<span>Erasmus+</span></div>
+            <div class="logo">Euro<span>Youth</span></div>
             <nav>
                 <ul>
-                    <li><a href="#despre">Ce este?</a></li>
-                    <li><a href="#oportunitati">Oportunități</a></li>
-                    <li><a href="#buget">Costuri Zero</a></li>
-                    <li><a href="#pasi">Cum aplici?</a></li>
+                    <li><a href="#despre">Despre</a></li>
+                    <li><a href="#oportunitati">Proiecte</a></li>
+                    <li><a href="#buget">Finanțare</a></li>
+                    <li><a href="#site-uri">Unde Aplici?</a></li>
+                    <li><a href="#pasi">Pași Înscriere</a></li>
+                    <li><a href="#faq">FAQ</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <!-- Zona Hero -->
+    <!-- Hero -->
     <section class="hero">
         <div class="hero-content">
-            <h1>Explorează lumea fără să-ți golești buzunarele!</h1>
-            <p>Descoperă cum organizațiile de tineret și proiectele Erasmus+ îți deschid porțile către Europa cu costuri zero.</p>
-            <a href="#oportunitati" class="btn">Află Cum</a>
+            <h1>Călătorește, Învață și Schimbă Lumea!</h1>
+            <p>Implică-te în organizații de tineret și accesează proiecte Erasmus+ complet finanțate. Descoperă Europa cu buget ZERO.</p>
+            <a href="#site-uri" class="btn">Vezi Site-urile de Aplicare</a>
         </div>
     </section>
 
-    <!-- Despre Proiect -->
+    <!-- Despre Implicare -->
     <section id="despre" class="container">
-        <h2>Implicarea Tinerilor în Organizații</h2>
-        <p style="text-align: center; max-width: 800px; margin: 0 auto 40px auto; font-size: 18px; color: #555;">
-            Organizațiile de tineret (ONG-uri) sunt rampa ta de lansare. Devenind voluntar sau membru, capeți acces la o rețea internațională de proiecte finanțate integral de Uniunea Europeană prin programul Erasmus+.
+        <h2>De ce să te implici ca tânăr?</h2>
+        <p class="intro-text">
+            Organizațiile de tineret (ONG-uri) nu sunt doar pentru voluntariat local. Ele reprezintă poarta ta legală și organizată către fondurile europene. Uniunea Europeană oferă miliarde de euro pentru ca tinerii (între 13 și 30 de ani) să poată interacționa, distrugând barierele financiare.
         </p>
+        <div class="grid">
+            <div class="card">
+                <h3>Dezvoltare Personală</h3>
+                <p>Ieși din zona de confort, exersezi limbi străine (în special engleza) și obții certificatul oficial <strong>Youthpass</strong>, recunoscut de angajatori la nivel european.</p>
+            </div>
+            <div class="card">
+                <h3>Networking Global</h3>
+                <p>Îți faci prieteni din toate colțurile lumii. Mulți tineri își găsesc viitori parteneri de afaceri, colegi de facultate sau gazde pentru viitoarele vacanțe.</p>
+            </div>
+            <div class="card">
+                <h3>Zero Costuri</h3>
+                <p>Sistemul este construit pe incluziune. Nu contează dacă ești student sau nu ai un loc de muncă; resursele financiare nu trebuie să fie un impediment.</p>
+            </div>
+        </div>
     </section>
 
-    <!-- Tipuri de Oportunități -->
+    <!-- Tipuri de Proiecte -->
     <section id="oportunitati" class="container">
-        <h2>Cum poți călători cu Erasmus+?</h2>
+        <h2>Tipuri de Experiențe Erasmus+</h2>
         <div class="grid">
-            <div class="card">
-                <h3>1. Schimburi de Tineri (Youth Exchanges)</h3>
-                <p>Proiecte scurte (5-21 de zile) în care grupuri de tineri din țări diferite se adună pentru a dezbate teme precum ecologia, arta, sportul sau leadership-ul. Totul se bazează pe educație non-formală (jocuri, workshop-uri, debate-uri).</p>
+            <div class="card" style="border-top-color: #e63946;">
+                <h3>Schimburi de Tineri (Youth Exchanges)</h3>
+                <p><strong>Durată:</strong> 5 - 21 zile<br>
+                <strong>Ce faci:</strong> Te întâlnești cu grupuri din alte 4-5 țări. Prin activități interactive, teatru, debate-uri sau ateliere de lucru, explorați o temă precum discriminarea, antreprenoriatul sau ecologia.</p>
             </div>
-            <div class="card">
-                <h3>2. Cursuri de Formare (Training Courses)</h3>
-                <p>Dedicat celor care vor să învețe abilități specifice (management de proiect, public speaking, digital skills). Durează de obicei sub două săptămâni și adună lucrători de tineret din toată lumea.</p>
+            <div class="card" style="border-top-color: #2a9d8f;">
+                <h3>Cursuri de Formare (Training Courses)</h3>
+                <p><strong>Durată:</strong> 4 - 12 zile<br>
+                <strong>Ce faci:</strong> Dedicate tinerilor activi, liderilor sau celor care vor să devină traineri. Înveți metode avansate de educație non-formală, public speaking și managementul voluntarilor.</p>
             </div>
-            <div class="card">
-                <h3>3. Voluntariat ESC (European Solidarity Corps)</h3>
-                <p>Oportunitatea de a locui și munci într-o altă țară pentru o perioadă de la 2 la 12 luni, ajutând o comunitate locală într-un proiect social, cultural sau de mediu.</p>
+            <div class="card" style="border-top-color: #457b9d;">
+                <h3>Corpul European de Solidaritate (ESC)</h3>
+                <p><strong>Durată:</strong> 2 - 12 luni<br>
+                <strong>Ce faci:</strong> Te muți efectiv în altă țară pentru a munci voluntar într-o organizație locală (ex: centre de tineret, rezervații naturale, centre culturale). Cea mai profundă experiență de independență.</p>
             </div>
         </div>
     </section>
 
-    <!-- Secțiunea de Buget / Cum funcționează finanțarea -->
+    <!-- Finanțarea Explictă -->
     <section id="buget" class="container">
-        <h2>Secretul călătoriilor cu bani puțini</h2>
-        <p>Multe persoane cred că proiectele internaționale sunt scumpe. În realitate, programul Erasmus+ este gândit special pentru a asigura egalitatea de șanse, indiferent de situația ta financiară.</p>
-        
-        <div class="info-box">
-            <h3>Ce înseamnă "Finanțat de Uniunea Europeană"?</h3>
-            <ul>
-                <li><strong>Cazarea și Masa:</strong> Sunt acoperite 100% de către organizația gazdă (stai la hotel, hostel sau campusuri dedicate și primești 3 mese pe zi).</li>
-                <li><strong>Transportul:</strong> Biletele de avion, tren sau autocar îți sunt decontate la finalul proiectului într-o limită de buget foarte generoasă (calculată pe kilometri).</li>
-                <li><strong>Bani de buzunar:</strong> În cazul voluntariatului pe termen lung (ESC), primești lunar o sumă fixă pentru mâncare și cheltuieli personale.</li>
-                <li><strong>Asigurare medicală:</strong> Inclusă gratuit pe toată durata proiectelor lungi.</li>
-            </ul>
+        <div class="budget-section">
+            <div style="max-width: 1000px; margin: 0 auto; padding: 0 20px;">
+                <h2>Cum este posibil să fie GRATUIT?</h2>
+                <div class="info-box">
+                    <h3>Mecanismul de Finanțare Europeană</h3>
+                    <p style="margin-bottom: 20px; color:#555;">Proiectele sunt finanțate prin granturi europene aprobate de Agențiile Naționale. Banii nu îți sunt dați cash în mână din prima zi, ci sunt gestionați astfel încât tu să nu ai cheltuieli:</p>
+                    <ul>
+                        <li><strong>Cazarea și mesele:</strong> Sunt plătite direct de organizatori. Vei locui în hoteluri, pensiuni sau complexe studențești și ai asigurate 3 mese pe zi + coffee break-uri.</li>
+                        <li><strong>Biletele de călătorie:</strong> Îți cumperi biletul de avion/autobuz/tren, iar la finalul proiectului (sau la câteva săptămâni după), transmiți facturile și boarding pass-urile, primind banii înapoi integral (în limita unui plafon kilometric generos, de obicei între 180 și 360 EUR, arhisuficient).</li>
+                        <li><strong>Bani de buzunar (Doar la ESC):</strong> Pentru proiectele lungi de voluntariat, primești o sumă lunară fixă (pocket money) calculată în funcție de țara gazdă, pentru cheltuieli personale.</li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- Ghidul de aplicare în pași simpli -->
+    <!-- SECTIUNEA NOUĂ: SITE-URI DE ACCESAT -->
+    <section id="site-uri" class="container">
+        <h2>Unde găsești proiecte? Site-uri oficiale și comunități</h2>
+        <p class="intro-text">Pentru a pleca, trebuie să aplici. Iată cele mai sigure și populare platforme din România și de la nivel european unde se publică zilnic oportunități:</p>
+        
+        <div class="resource-list">
+            <!-- Site 1 -->
+            <div class="resource-card">
+                <span class="tag-oficial">Oficial RO</span>
+                <h4>ErasmusPlus.ro</h4>
+                <p>Site-ul oficial gestionat de Agenția Națională din România. Perfect pentru a înțelege regulile și a vedea lista organizațiilor acreditate.</p>
+                <a href="https://www.erasmusplus.ro" target="_blank" class="link-btn">Vizitează Site-ul</a>
+            </div>
+            <!-- Site 2 -->
+            <div class="resource-card">
+                <span class="tag-oficial">Oficial UE</span>
+                <h4>Portalul European pentru Tineret</h4>
+                <p>Platforma centrală a Uniunii Europene. Locul de bază dacă vrei să aplici pentru proiecte pe termen lung din Corpul European de Solidaritate (ESC).</p>
+                <a href="https://youth.europa.eu/home_ro" target="_blank" class="link-btn">Caută Proiecte</a>
+            </div>
+            <!-- Site 3 -->
+            <div class="resource-card">
+                <span class="tag-comunitate">Bază de date UE</span>
+                <h4>Salto-Youth (Otlas)</h4>
+                <p>Cea mai mare platformă internațională unde ONG-urile din toată Europa își publică proiectele și caută participanți de ultim moment.</p>
+                <a href="https://www.salto-youth.net" target="_blank" class="link-btn">Explorează Salto</a>
+            </div>
+            <!-- Site 4 -->
+            <div class="resource-card">
+                <span class="tag-comunitate">Comunitate RO</span>
+                <h4>Grupuri de Facebook active</h4>
+                <p>Cea mai rapidă metodă în România. Caută pe Facebook grupurile: <strong>"Erasmus+ Romania"</strong> sau <strong>"Schimburi de tineri Erasmus+ / Youth Exchanges"</strong>. ONG-urile românești postează zilnic formulare de înscriere acolo.</p>
+                <a href="https://www.facebook.com" target="_blank" class="link-btn">Mergi pe Facebook</a>
+            </div>
+            <!-- Site 5 -->
+            <div class="resource-card">
+                <span class="tag-comunitate">Platformă RO</span>
+                <h4>GEYC Resources & Tineri.mp</h4>
+                <p>Organizații mari din România (precum GEYC, Asociația Tinerilor Europeni sau Centrul de Voluntariat) au propriile secțiuni fixe de "Apeluri pentru Participanți".</p>
+                <a href="https://www.geyc.ro" target="_blank" class="link-btn">Vezi un exemplu (GEYC)</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ghidul de aplicare -->
     <section id="pasi" class="container">
-        <h2>Cum începi în 4 pași simpli</h2>
+        <h2>Planul tău de acțiune în 4 pași</h2>
         <div class="grid">
-            <div class="card" style="border-top-color: #e63946;">
-                <h3>Pasul 1: Găsește un ONG</h3>
-                <p>Caută pe Facebook sau Google organizații de tineret locale din România (ex: Asociația Tinerilor Europeni, GEYC, voluntariat.ro etc.).</p>
+            <div class="card">
+                <h3>1. Pregătește un CV simplu</h3>
+                <p>Fă-ți un CV de bază în limba engleză (recomandat formatul Europass). Nu ai nevoie de experiență de muncă masivă, ci doar să arăți că ești o persoană activă sau dornică să învețe.</p>
             </div>
-            <div class="card" style="border-top-color: #e63946;">
-                <h3>Pasul 2: Intră pe Grupuri</h3>
-                <p>Alătură-te grupurilor de Facebook de tipul "Erasmus+ Romania" sau "Schimburi de tineri Erasmus+". Acolo se postează zilnic apeluri pentru participanți.</p>
+            <div class="card">
+                <h3>2. Vânează oportunitățile</h3>
+                <p>Intră pe grupurile menționate mai sus sau pe Salto-Youth cel puțin de 2-3 ori pe săptămână. Proiectele bune își strâng participanții rapid!</p>
             </div>
-            <div class="card" style="border-top-color: #e63946;">
-                <h3>Pasul 3: Completează formularul</h3>
-                <p>Când vezi un proiect care îți place (ex: un schimb de tineri în Italia sau Spania), completează formularul de aplicare (Google Form). Scrie sincer de ce vrei să mergi.</p>
+            <div class="card">
+                <h3>3. Aplică cu motivație reală</h3>
+                <p>Formularele de aplicare conțin de obicei întrebarea: *"De ce vrei să participi la acest proiect?"*. Evită răspunsuri scurte ca "Vreau să vizitez Spania". Scrie despre cum te ajută tema proiectului pe tine sau comunitatea ta.</p>
             </div>
-            <div class="card" style="border-top-color: #e63946;">
-                <h3>Pasul 4: Împachetează bagajul</h3>
-                <p>Odată selectat, organizația de trimitere te va ajuta cu detaliile despre transport. Tot ce îți rămâne de făcut este să explorezi lumea și să-ți faci prieteni noi!</p>
+            <div class="card">
+                <h3>4. Confirmarea și Plecarea</h3>
+                <p>Dacă ești acceptat, ONG-ul din România (organizația de trimitere) te va adăuga într-un grup de info și te va ghida cum să îți cumperi biletele optime. Restul e istorie!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTIUNEA NOUĂ: FAQ -->
+    <section id="faq" class="container">
+        <h2>Întrebări Frecvente (FAQ)</h2>
+        <div class="faq-section">
+            <div class="faq-item">
+                <h3>Trebuie să fiu neapărat student ca să particip?</h3>
+                <p><strong>Răspuns:</strong> Categoric NU! Proiectele de tineret (Schimburi de tineri și ESC) sunt deschise oricui se încadrează în limita de vârstă, indiferent dacă ești la liceu, facultate, lucrezi sau ești șomer.</p>
+            </div>
+            <div class="faq-item">
+                <h3>Care este limita de vârstă?</h3>
+                <p><strong>Răspuns:</strong> Pentru Schimburile de Tineri, limita standard este între 13 și 30 de ani. Pentru Cursurile de Formare (Trainings), adesea nu există o limită superioară de vârstă, condiția fiind să fii lucrător de tineret sau voluntar activ.</p>
+            </div>
+            <div class="faq-item">
+                <h3>Ce se întâmplă dacă nu știu engleza perfect?</h3>
+                <p><strong>Răspuns:</strong> Acesta este cel mai bun mediu în care să o înveți! Nimeni nu te va critica. Atmosfera este extrem de tolerantă și incluzivă, fiind concepută special pentru a ajuta tinerii să își dezvolte abilitățile de comunicare.</p>
             </div>
         </div>
     </section>
 
     <!-- Subsol -->
     <footer>
-        <p>&copy; 2026 Ghidul Tinerilor Erasmus+. Creat cu scop informativ pentru viitorii exploratori.</p>
+        <p>&copy; 2026 Ghidul de Călătorii Gratuite pentru Tineret.</p>
+        <p>Acest site este un proiect educațional independent creat pentru promovarea mobilității europene.</p>
     </footer>
 
 </body>
